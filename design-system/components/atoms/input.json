@@ -1,0 +1,148 @@
+{
+  "name": "Input",
+  "description": "テキスト入力フィールドコンポーネント",
+  "variants": {
+    "type": {
+      "text": {
+        "type": "text"
+      },
+      "email": {
+        "type": "email",
+        "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+      },
+      "password": {
+        "type": "password"
+      },
+      "number": {
+        "type": "number"
+      },
+      "tel": {
+        "type": "tel"
+      },
+      "date": {
+        "type": "date"
+      },
+      "time": {
+        "type": "time"
+      },
+      "search": {
+        "type": "search"
+      }
+    },
+    "size": {
+      "small": {
+        "padding": "6px 12px",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "minHeight": "32px"
+      },
+      "medium": {
+        "padding": "8px 12px",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "minHeight": "40px"
+      },
+      "large": {
+        "padding": "12px 16px",
+        "fontSize": "18px",
+        "lineHeight": "28px",
+        "minHeight": "48px"
+      }
+    },
+    "state": {
+      "default": {
+        "borderColor": "#D1D5DB",
+        "background": "#FFFFFF"
+      },
+      "hover": {
+        "borderColor": "#9CA3AF"
+      },
+      "focus": {
+        "borderColor": "#003DA5",
+        "boxShadow": "0 0 0 3px rgba(0, 61, 165, 0.1)",
+        "outline": "none"
+      },
+      "error": {
+        "borderColor": "#EF4444",
+        "background": "#FEF2F2",
+        "focus": {
+          "boxShadow": "0 0 0 3px rgba(239, 68, 68, 0.1)"
+        }
+      },
+      "success": {
+        "borderColor": "#10B981",
+        "background": "#F0FDF4",
+        "focus": {
+          "boxShadow": "0 0 0 3px rgba(16, 185, 129, 0.1)"
+        }
+      },
+      "disabled": {
+        "background": "#F9FAFB",
+        "borderColor": "#E5E7EB",
+        "color": "#9CA3AF",
+        "cursor": "not-allowed",
+        "opacity": 0.6
+      }
+    }
+  },
+  "properties": {
+    "width": "100%",
+    "border": "1px solid",
+    "borderRadius": "8px",
+    "fontFamily": "inherit",
+    "fontWeight": 400,
+    "transition": "all 0.2s ease",
+    "appearance": "none",
+    "boxSizing": "border-box",
+    "color": "#111827"
+  },
+  "label": {
+    "fontSize": "14px",
+    "fontWeight": 500,
+    "color": "#374151",
+    "marginBottom": "6px",
+    "display": "block",
+    "required": {
+      "color": "#EF4444",
+      "content": "*",
+      "marginLeft": "4px"
+    }
+  },
+  "helperText": {
+    "fontSize": "12px",
+    "color": "#6B7280",
+    "marginTop": "4px",
+    "lineHeight": "16px"
+  },
+  "errorMessage": {
+    "fontSize": "12px",
+    "color": "#EF4444",
+    "marginTop": "4px",
+    "lineHeight": "16px",
+    "display": "flex",
+    "alignItems": "center",
+    "gap": "4px"
+  },
+  "icon": {
+    "position": "absolute",
+    "color": "#6B7280",
+    "pointerEvents": "none",
+    "left": {
+      "left": "12px",
+      "inputPadding": "36px"
+    },
+    "right": {
+      "right": "12px",
+      "inputPadding": "36px"
+    }
+  },
+  "placeholder": {
+    "color": "#9CA3AF",
+    "opacity": 1
+  },
+  "accessibility": {
+    "ariaInvalid": false,
+    "ariaRequired": false,
+    "ariaDescribedby": "helper-text or error-message"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "name": "Checkbox",
+  "description": "チェックボックスコンポーネント",
+  "variants": {
+    "size": {
+      "small": {
+        "size": "16px",
+        "borderRadius": "4px",
+        "fontSize": "14px",
+        "gap": "8px"
+      },
+      "medium": {
+        "size": "20px",
+        "borderRadius": "6px",
+        "fontSize": "16px",
+        "gap": "10px"
+      },
+      "large": {
+        "size": "24px",
+        "borderRadius": "8px",
+        "fontSize": "18px",
+        "gap": "12px"
+      }
+    },
+    "state": {
+      "unchecked": {
+        "background": "#FFFFFF",
+        "border": "2px solid #D1D5DB",
+        "hover": {
+          "borderColor": "#9CA3AF",
+          "background": "#F9FAFB"
+        }
+      },
+      "checked": {
+        "background": "#003DA5",
+        "border": "2px solid #003DA5",
+        "icon": "✓",
+        "iconColor": "#FFFFFF",
+        "hover": {
+          "background": "#002A75",
+          "borderColor": "#002A75"
+        }
+      },
+      "indeterminate": {
+        "background": "#003DA5",
+        "border": "2px solid #003DA5",
+        "icon": "−",
+        "iconColor": "#FFFFFF"
+      },
+      "disabled": {
+        "background": "#F3F4F6",
+        "border": "2px solid #E5E7EB",
+        "cursor": "not-allowed",
+        "opacity": 0.5
+      },
+      "error": {
+        "borderColor": "#EF4444",
+        "focus": {
+          "boxShadow": "0 0 0 3px rgba(239, 68, 68, 0.1)"
+        }
+      }
+    }
+  },
+  "properties": {
+    "display": "inline-flex",
+    "alignItems": "center",
+    "cursor": "pointer",
+    "userSelect": "none",
+    "position": "relative"
+  },
+  "input": {
+    "position": "absolute",
+    "opacity": 0,
+    "width": "100%",
+    "height": "100%",
+    "cursor": "pointer"
+  },
+  "box": {
+    "display": "inline-flex",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "transition": "all 0.2s ease",
+    "flexShrink": 0
+  },
+  "label": {
+    "color": "#374151",
+    "cursor": "pointer",
+    "lineHeight": 1.5,
+    "disabled": {
+      "color": "#9CA3AF",
+      "cursor": "not-allowed"
+    }
+  },
+  "focus": {
+    "outline": "none",
+    "boxShadow": "0 0 0 3px rgba(0, 61, 165, 0.2)"
+  },
+  "icon": {
+    "animation": "fadeIn 0.2s ease",
+    "fontWeight": "bold"
+  },
+  "group": {
+    "display": "flex",
+    "flexDirection": "column",
+    "gap": "12px",
+    "label": {
+      "fontSize": "14px",
+      "fontWeight": 500,
+      "color": "#374151",
+      "marginBottom": "8px"
+    }
+  },
+  "accessibility": {
+    "role": "checkbox",
+    "ariaChecked": false,
+    "ariaDisabled": false,
+    "ariaInvalid": false,
+    "tabIndex": 0
+  }
+}

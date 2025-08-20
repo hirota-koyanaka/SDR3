@@ -1,0 +1,65 @@
+{
+  "brand": {
+    "fc_imabari": {
+      "primary": {
+        "blue": {
+          "value": "#003DA5",
+          "description": "FC今治メインカラー - プライマリーブルー"
+        },
+        "green": {
+          "value": "#00A650",
+          "description": "FC今治サブカラー - グリーン"
+        }
+      },
+      "secondary": {
+        "light_blue": {
+          "value": "#4A7BC7",
+          "description": "プライマリーブルーの明るいバリエーション"
+        },
+        "dark_blue": {
+          "value": "#002A75",
+          "description": "プライマリーブルーの暗いバリエーション"
+        }
+      }
+    }
+  },
+  "semantic": {
+    "success": {
+      "value": "#10B981",
+      "description": "成功・完了状態"
+    },
+    "warning": {
+      "value": "#F59E0B",
+      "description": "警告・注意状態"
+    },
+    "error": {
+      "value": "#EF4444",
+      "description": "エラー・危険状態"
+    },
+    "info": {
+      "value": "#3B82F6",
+      "description": "情報・通知状態"
+    }
+  },
+  "neutral": {
+    "gray": {
+      "50": "#F9FAFB",
+      "100": "#F3F4F6",
+      "200": "#E5E7EB",
+      "300": "#D1D5DB",
+      "400": "#9CA3AF",
+      "500": "#6B7280",
+      "600": "#4B5563",
+      "700": "#374151",
+      "800": "#1F2937",
+      "900": "#111827"
+    },
+    "white": "#FFFFFF",
+    "black": "#000000"
+  },
+  "background": {
+    "primary": "#FFFFFF",
+    "secondary": "#F9FAFB",
+    "tertiary": "#F3F4F6"
+  }
+}

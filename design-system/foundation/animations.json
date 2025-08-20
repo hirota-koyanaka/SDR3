@@ -1,0 +1,113 @@
+{
+  "duration": {
+    "instant": "0ms",
+    "fast": "150ms",
+    "normal": "300ms",
+    "slow": "500ms",
+    "slower": "1000ms"
+  },
+  "easing": {
+    "linear": "linear",
+    "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+    "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+    "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+  },
+  "transitions": {
+    "all": {
+      "property": "all",
+      "duration": "300ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    },
+    "colors": {
+      "property": "background-color, border-color, color, fill, stroke",
+      "duration": "150ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    },
+    "opacity": {
+      "property": "opacity",
+      "duration": "150ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    },
+    "shadow": {
+      "property": "box-shadow",
+      "duration": "150ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    },
+    "transform": {
+      "property": "transform",
+      "duration": "150ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "keyframes": {
+    "fadeIn": {
+      "from": {
+        "opacity": 0
+      },
+      "to": {
+        "opacity": 1
+      }
+    },
+    "fadeInUp": {
+      "from": {
+        "opacity": 0,
+        "transform": "translateY(20px)"
+      },
+      "to": {
+        "opacity": 1,
+        "transform": "translateY(0)"
+      }
+    },
+    "fadeInDown": {
+      "from": {
+        "opacity": 0,
+        "transform": "translateY(-20px)"
+      },
+      "to": {
+        "opacity": 1,
+        "transform": "translateY(0)"
+      }
+    },
+    "slideInRight": {
+      "from": {
+        "transform": "translateX(100%)"
+      },
+      "to": {
+        "transform": "translateX(0)"
+      }
+    },
+    "slideInLeft": {
+      "from": {
+        "transform": "translateX(-100%)"
+      },
+      "to": {
+        "transform": "translateX(0)"
+      }
+    },
+    "pulse": {
+      "0%, 100%": {
+        "opacity": 1
+      },
+      "50%": {
+        "opacity": 0.5
+      }
+    },
+    "spin": {
+      "from": {
+        "transform": "rotate(0deg)"
+      },
+      "to": {
+        "transform": "rotate(360deg)"
+      }
+    },
+    "bounce": {
+      "0%, 100%": {
+        "transform": "translateY(0)"
+      },
+      "50%": {
+        "transform": "translateY(-25%)"
+      }
+    }
+  }
+}

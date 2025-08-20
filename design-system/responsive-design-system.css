@@ -1,0 +1,538 @@
+/* レスポンシブデザインシステム - モバイル最適化 */
+
+/* ========================================
+   基本設定
+   ======================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   ブレークポイント定義
+   ======================================== */
+
+:root {
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  
+  /* モバイル用スペーシング */
+  --mobile-padding: 16px;
+  --mobile-margin: 12px;
+  --mobile-gap: 16px;
+  
+  /* タブレット用スペーシング */
+  --tablet-padding: 24px;
+  --tablet-margin: 16px;
+  --tablet-gap: 24px;
+  
+  /* デスクトップ用スペーシング */
+  --desktop-padding: 32px;
+  --desktop-margin: 24px;
+  --desktop-gap: 32px;
+}
+
+/* ========================================
+   コンテナシステム
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--mobile-padding);
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+    padding: 0 var(--tablet-padding);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: 0 var(--tablet-padding);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    padding: 0 var(--desktop-padding);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 var(--desktop-padding);
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    padding: 0 var(--desktop-padding);
+  }
+}
+
+/* ========================================
+   グリッドシステム
+   ======================================== */
+
+.grid {
+  display: grid;
+  gap: var(--mobile-gap);
+  width: 100%;
+}
+
+/* モバイル: 1カラム */
+@media (max-width: 767px) {
+  .grid-cols-1 { grid-template-columns: 1fr; }
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: 1fr; }
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-5 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-6 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-12 { grid-template-columns: 1fr; }
+}
+
+/* タブレット: 2-3カラム */
+@media (min-width: 768px) and (max-width: 991px) {
+  .grid {
+    gap: var(--tablet-gap);
+  }
+  
+  .grid-cols-1 { grid-template-columns: 1fr; }
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-5 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-6 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-12 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* デスクトップ: フルグリッド */
+@media (min-width: 992px) {
+  .grid {
+    gap: var(--desktop-gap);
+  }
+  
+  .grid-cols-1 { grid-template-columns: 1fr; }
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+}
+
+/* ========================================
+   レスポンシブタイポグラフィ
+   ======================================== */
+
+/* ヘッダー */
+.text-h1 {
+  font-size: clamp(24px, 6vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-h4 {
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* 本文 */
+.text-body {
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.6;
+}
+
+.text-large {
+  font-size: clamp(16px, 2.5vw, 20px);
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: clamp(12px, 1.5vw, 14px);
+  line-height: 1.5;
+}
+
+/* ========================================
+   レスポンシブコンポーネント
+   ======================================== */
+
+/* ボタン */
+.btn-responsive {
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+  font-size: clamp(14px, 2vw, 16px);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  min-height: 44px; /* タップターゲット最小サイズ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* モバイルでのフルワイドボタン */
+@media (max-width: 767px) {
+  .btn-mobile-full {
+    width: 100%;
+  }
+}
+
+/* カード */
+.card-responsive {
+  padding: clamp(16px, 3vw, 24px);
+  border-radius: clamp(12px, 2vw, 16px);
+  margin-bottom: clamp(16px, 3vw, 24px);
+}
+
+/* 入力フィールド */
+.input-responsive {
+  padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 16px);
+  font-size: clamp(14px, 2vw, 16px);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  min-height: 44px; /* タップターゲット最小サイズ */
+}
+
+/* ========================================
+   モバイルナビゲーション
+   ======================================== */
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-top: 1px solid #E5E7EB;
+  padding: 8px 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* メインコンテンツにボトムパディング追加 */
+  .main-content-mobile {
+    padding-bottom: 80px;
+  }
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  min-width: 60px;
+  color: #6B7280;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.mobile-nav-item.active {
+  color: #003DA5;
+  background: #EFF6FF;
+}
+
+.mobile-nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-nav-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ========================================
+   タッチ対応
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* タッチデバイス用のスタイル */
+  
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ホバー効果を無効化 */
+  .hover-disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* タップフィードバック */
+  .tap-feedback:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* ========================================
+   モバイル用ヘッダー
+   ======================================== */
+
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 12px 16px;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* デスクトップヘッダーを非表示 */
+  .desktop-header {
+    display: none;
+  }
+}
+
+.mobile-menu-button {
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-button:hover {
+  background: #F3F4F6;
+}
+
+/* ========================================
+   モバイル用モーダル・ドロワー
+   ======================================== */
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.mobile-drawer.open {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-drawer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-drawer.open .mobile-drawer-content {
+  transform: translateX(0);
+}
+
+/* ========================================
+   スクロール最適化
+   ======================================== */
+
+@media (max-width: 767px) {
+  /* スムーススクロール */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* オーバースクロール防止 */
+  body {
+    overscroll-behavior: none;
+  }
+  
+  /* スクロールバー非表示（モバイル） */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ========================================
+   プリントスタイル
+   ======================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000000;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* ========================================
+   ダークモード対応
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .auto-dark {
+    --bg-color: #111827;
+    --text-color: #F9FAFB;
+    --border-color: #374151;
+  }
+}
+
+/* ========================================
+   アニメーション削減設定
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   ユーティリティクラス
+   ======================================== */
+
+/* 表示・非表示 */
+.hide-mobile {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+.hide-tablet {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* スペーシング */
+.p-responsive {
+  padding: clamp(16px, 3vw, 32px);
+}
+
+.m-responsive {
+  margin: clamp(16px, 3vw, 32px);
+}
+
+.gap-responsive {
+  gap: clamp(16px, 3vw, 32px);
+}
+
+/* テキスト配置 */
+@media (max-width: 767px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  .text-left-mobile {
+    text-align: left !important;
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "name": "Card",
+  "description": "コンテンツをグループ化するカードコンポーネント",
+  "variants": {
+    "type": {
+      "default": {
+        "background": "#FFFFFF",
+        "border": "1px solid #E5E7EB",
+        "boxShadow": "none"
+      },
+      "elevated": {
+        "background": "#FFFFFF",
+        "border": "none",
+        "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)"
+      },
+      "outlined": {
+        "background": "#FFFFFF",
+        "border": "2px solid #D1D5DB",
+        "boxShadow": "none"
+      },
+      "filled": {
+        "background": "#F9FAFB",
+        "border": "none",
+        "boxShadow": "none"
+      }
+    },
+    "size": {
+      "small": {
+        "padding": "16px",
+        "borderRadius": "8px",
+        "gap": "12px"
+      },
+      "medium": {
+        "padding": "20px",
+        "borderRadius": "12px",
+        "gap": "16px"
+      },
+      "large": {
+        "padding": "24px",
+        "borderRadius": "16px",
+        "gap": "20px"
+      }
+    },
+    "interactive": {
+      "true": {
+        "cursor": "pointer",
+        "transition": "all 0.2s ease",
+        "hover": {
+          "transform": "translateY(-2px)",
+          "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+        },
+        "active": {
+          "transform": "translateY(0)",
+          "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)"
+        }
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-between",
+      "marginBottom": "16px",
+      "paddingBottom": "12px",
+      "borderBottom": "1px solid #E5E7EB"
+    },
+    "body": {
+      "flex": 1,
+      "minHeight": 0
+    },
+    "footer": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-between",
+      "marginTop": "16px",
+      "paddingTop": "12px",
+      "borderTop": "1px solid #E5E7EB"
+    },
+    "media": {
+      "position": "relative",
+      "width": "100%",
+      "height": "auto",
+      "borderRadius": "8px",
+      "overflow": "hidden",
+      "aspectRatio": "16/9"
+    }
+  },
+  "properties": {
+    "display": "flex",
+    "flexDirection": "column",
+    "width": "100%",
+    "overflow": "hidden",
+    "position": "relative"
+  },
+  "title": {
+    "fontSize": "18px",
+    "fontWeight": 600,
+    "color": "#111827",
+    "lineHeight": 1.4
+  },
+  "subtitle": {
+    "fontSize": "14px",
+    "fontWeight": 400,
+    "color": "#6B7280",
+    "lineHeight": 1.5,
+    "marginTop": "4px"
+  },
+  "content": {
+    "fontSize": "16px",
+    "fontWeight": 400,
+    "color": "#374151",
+    "lineHeight": 1.6
+  },
+  "focus": {
+    "outline": "2px solid #003DA5",
+    "outlineOffset": "2px"
+  },
+  "skeleton": {
+    "background": "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+    "backgroundSize": "200% 100%",
+    "animation": "loading 1.5s infinite"
+  },
+  "accessibility": {
+    "role": "article",
+    "tabIndex": -1
+  }
+}

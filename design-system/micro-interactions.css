@@ -1,0 +1,585 @@
+/* マイクロインタラクション & アニメーションシステム */
+
+/* ========================================
+   基本アニメーション設定
+   ======================================== */
+
+:root {
+  /* アニメーション速度 */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 1000ms;
+  
+  /* イージング */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 基本トランジション */
+.transition-all {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.transition-colors {
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.transition-transform {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.transition-opacity {
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+/* ========================================
+   ボタンインタラクション
+   ======================================== */
+
+.btn-micro {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+  transform-origin: center;
+}
+
+/* ホバーエフェクト */
+.btn-micro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 61, 165, 0.3);
+}
+
+.btn-micro:active {
+  transform: translateY(0);
+  transition-duration: var(--duration-fast);
+}
+
+/* リップルエフェクト */
+.btn-micro::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width var(--duration-slow) var(--ease-out),
+              height var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.btn-micro:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ローディング状態 */
+.btn-loading {
+  cursor: wait;
+  position: relative;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+  color: inherit;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ========================================
+   フォームインタラクション
+   ======================================== */
+
+.form-field-micro {
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* フォーカス状態 */
+.input-micro {
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+
+.input-micro:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1),
+              0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* フローティングラベル */
+.floating-label {
+  position: relative;
+}
+
+.floating-label input {
+  padding-top: 20px;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #9CA3AF;
+  transition: all var(--duration-normal) var(--ease-out);
+  pointer-events: none;
+  background: #FFFFFF;
+  padding: 0 4px;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #003DA5;
+}
+
+/* バリデーション状態 */
+.input-success {
+  animation: successPulse var(--duration-normal) var(--ease-out);
+}
+
+.input-error {
+  animation: errorShake var(--duration-normal) var(--ease-out);
+}
+
+@keyframes successPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* ========================================
+   カードインタラクション
+   ======================================== */
+
+.card-micro {
+  transition: all var(--duration-normal) var(--ease-out);
+  transform-origin: center bottom;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-micro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.card-micro:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-micro:hover::before {
+  left: 100%;
+}
+
+/* ========================================
+   ナビゲーションインタラクション
+   ======================================== */
+
+.nav-item-micro {
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.nav-item-micro::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #003DA5, #00A650);
+  transition: all var(--duration-normal) var(--ease-out);
+  transform: translateX(-50%);
+}
+
+.nav-item-micro:hover::after,
+.nav-item-micro.active::after {
+  width: 100%;
+}
+
+.nav-item-micro:hover {
+  transform: translateY(-2px);
+  color: #003DA5;
+}
+
+/* ========================================
+   モーダルアニメーション
+   ======================================== */
+
+.modal-backdrop {
+  animation: modalBackdropFadeIn var(--duration-normal) var(--ease-out);
+}
+
+.modal-backdrop.closing {
+  animation: modalBackdropFadeOut var(--duration-normal) var(--ease-in);
+}
+
+.modal-content {
+  animation: modalSlideUp var(--duration-normal) var(--ease-out);
+}
+
+.modal-content.closing {
+  animation: modalSlideDown var(--duration-normal) var(--ease-in);
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+@keyframes modalBackdropFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalSlideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+/* ========================================
+   トーストアニメーション
+   ======================================== */
+
+.toast {
+  animation: toastSlideIn var(--duration-normal) var(--ease-bounce);
+}
+
+.toast.removing {
+  animation: toastSlideOut var(--duration-normal) var(--ease-in);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* ========================================
+   プログレスアニメーション
+   ======================================== */
+
+.progress-bar {
+  overflow: hidden;
+  background: #E5E7EB;
+  border-radius: 10px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #003DA5 0%, #00A650 100%);
+  border-radius: 10px;
+  transition: width var(--duration-slow) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShimmer 2s infinite;
+}
+
+@keyframes progressShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ========================================
+   ローディングアニメーション
+   ======================================== */
+
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  background: #003DA5;
+  border-radius: 50%;
+  animation: loadingDotBounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes loadingDotBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* スケルトンローディング */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ========================================
+   パーティクルエフェクト
+   ======================================== */
+
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 166, 80, 0.6);
+  border-radius: 50%;
+  animation: particleFloat 15s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   いいねアニメーション
+   ======================================== */
+
+.like-button {
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.like-button.liked {
+  animation: likeHeart var(--duration-normal) var(--ease-bounce);
+  color: #EF4444;
+}
+
+.like-button.liked::after {
+  content: '💕';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: likeFloatUp 1s var(--ease-out) forwards;
+  pointer-events: none;
+}
+
+@keyframes likeHeart {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes likeFloatUp {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px) scale(0.5);
+  }
+}
+
+/* ========================================
+   スクロールインジケーター
+   ======================================== */
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 61, 165, 0.1);
+  z-index: 1000;
+}
+
+.scroll-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #003DA5 0%, #00A650 100%);
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* ========================================
+   フォーカス表示
+   ======================================== */
+
+.focus-visible {
+  outline: 2px solid #003DA5;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* キーボードフォーカス時のみ表示 */
+.focus-visible:not(.focus-visible) {
+  outline: none;
+}
+
+/* ========================================
+   アクセシビリティ配慮
+   ======================================== */
+
+/* アニメーション削減設定 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .particle {
+    display: none;
+  }
+}
+
+/* ハイコントラストモード */
+@media (prefers-contrast: high) {
+  .btn-micro:hover {
+    box-shadow: 0 0 0 2px currentColor;
+  }
+  
+  .focus-visible {
+    outline-width: 3px;
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/.next",
+  "framework": "nextjs",
+  "installCommand": "cd frontend && npm install",
+  "devCommand": "cd frontend && npm run dev",
+  "regions": ["hnd1"],
+  "functions": {
+    "api/backend/[...path].ts": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "SUPABASE_SERVICE_KEY": "@supabase_service_key",
+    "DATABASE_URL": "@database_url",
+    "JWT_SECRET": "@jwt_secret",
+    "SMTP_HOST": "@smtp_host",
+    "SMTP_PORT": "@smtp_port",
+    "SMTP_USER": "@smtp_user",
+    "SMTP_PASSWORD": "@smtp_password",
+    "EMAIL_FROM": "@email_from"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/backend/:path*",
+      "destination": "https://satoyama-dogrun-backend.vercel.app/api/:path*"
+    }
+  ]
+}

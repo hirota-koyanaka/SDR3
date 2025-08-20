@@ -1,0 +1,208 @@
+{
+  "name": "Modal",
+  "description": "モーダルダイアログコンポーネント",
+  "structure": {
+    "overlay": {
+      "position": "fixed",
+      "top": 0,
+      "left": 0,
+      "right": 0,
+      "bottom": 0,
+      "background": "rgba(0, 0, 0, 0.5)",
+      "backdropFilter": "blur(4px)",
+      "zIndex": 1000,
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "padding": "24px",
+      "animation": "fadeIn 0.2s ease"
+    },
+    "container": {
+      "background": "#FFFFFF",
+      "borderRadius": "24px",
+      "maxWidth": "560px",
+      "width": "100%",
+      "maxHeight": "90vh",
+      "overflow": "hidden",
+      "boxShadow": "0 20px 60px rgba(0, 0, 0, 0.3)",
+      "animation": "slideUp 0.3s ease",
+      "position": "relative"
+    }
+  },
+  "variants": {
+    "size": {
+      "small": {
+        "maxWidth": "400px"
+      },
+      "medium": {
+        "maxWidth": "560px"
+      },
+      "large": {
+        "maxWidth": "720px"
+      },
+      "fullscreen": {
+        "maxWidth": "100%",
+        "maxHeight": "100%",
+        "height": "100%",
+        "borderRadius": 0
+      }
+    },
+    "type": {
+      "default": {
+        "header": {
+          "background": "#FFFFFF",
+          "borderBottom": "1px solid #E5E7EB"
+        }
+      },
+      "success": {
+        "header": {
+          "background": "linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)",
+          "borderBottom": "1px solid #BBF7D0"
+        },
+        "icon": {
+          "color": "#10B981"
+        }
+      },
+      "warning": {
+        "header": {
+          "background": "linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)",
+          "borderBottom": "1px solid #FCD34D"
+        },
+        "icon": {
+          "color": "#F59E0B"
+        }
+      },
+      "error": {
+        "header": {
+          "background": "linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%)",
+          "borderBottom": "1px solid #FCA5A5"
+        },
+        "icon": {
+          "color": "#EF4444"
+        }
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-between",
+      "padding": "24px",
+      "borderBottom": "1px solid #E5E7EB"
+    },
+    "title": {
+      "fontSize": "20px",
+      "fontWeight": 600,
+      "color": "#111827",
+      "lineHeight": 1.4,
+      "display": "flex",
+      "alignItems": "center",
+      "gap": "12px"
+    },
+    "closeButton": {
+      "width": "32px",
+      "height": "32px",
+      "background": "transparent",
+      "border": "none",
+      "borderRadius": "8px",
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "cursor": "pointer",
+      "transition": "all 0.2s ease",
+      "color": "#6B7280",
+      "hover": {
+        "background": "#F3F4F6",
+        "color": "#111827"
+      }
+    },
+    "body": {
+      "padding": "24px",
+      "overflowY": "auto",
+      "maxHeight": "calc(90vh - 160px)"
+    },
+    "footer": {
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "flex-end",
+      "gap": "12px",
+      "padding": "24px",
+      "borderTop": "1px solid #E5E7EB",
+      "background": "#F9FAFB"
+    }
+  },
+  "animations": {
+    "fadeIn": {
+      "from": {
+        "opacity": 0
+      },
+      "to": {
+        "opacity": 1
+      }
+    },
+    "slideUp": {
+      "from": {
+        "opacity": 0,
+        "transform": "translateY(20px) scale(0.95)"
+      },
+      "to": {
+        "opacity": 1,
+        "transform": "translateY(0) scale(1)"
+      }
+    },
+    "slideDown": {
+      "from": {
+        "opacity": 1,
+        "transform": "translateY(0) scale(1)"
+      },
+      "to": {
+        "opacity": 0,
+        "transform": "translateY(20px) scale(0.95)"
+      }
+    }
+  },
+  "accessibility": {
+    "role": "dialog",
+    "ariaModal": true,
+    "ariaLabelledby": "modal-title",
+    "ariaDescribedby": "modal-description",
+    "tabIndex": -1,
+    "focusTrap": true,
+    "escapeKey": true
+  },
+  "props": {
+    "isOpen": {
+      "type": "boolean",
+      "required": true
+    },
+    "onClose": {
+      "type": "function",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "string",
+      "default": "medium"
+    },
+    "type": {
+      "type": "string",
+      "default": "default"
+    },
+    "showCloseButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "default": true
+    },
+    "closeOnEscape": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

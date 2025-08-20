@@ -1,0 +1,127 @@
+{
+  "name": "Badge",
+  "description": "ステータスやラベル表示用のバッジコンポーネント",
+  "variants": {
+    "type": {
+      "default": {
+        "background": "#F3F4F6",
+        "color": "#374151",
+        "border": "1px solid #E5E7EB"
+      },
+      "primary": {
+        "background": "#EFF6FF",
+        "color": "#003DA5",
+        "border": "1px solid #DBEAFE"
+      },
+      "success": {
+        "background": "#F0FDF4",
+        "color": "#10B981",
+        "border": "1px solid #D1FAE5"
+      },
+      "warning": {
+        "background": "#FEF3C7",
+        "color": "#F59E0B",
+        "border": "1px solid #FDE68A"
+      },
+      "error": {
+        "background": "#FEF2F2",
+        "color": "#EF4444",
+        "border": "1px solid #FECACA"
+      },
+      "info": {
+        "background": "#EFF6FF",
+        "color": "#3B82F6",
+        "border": "1px solid #DBEAFE"
+      }
+    },
+    "size": {
+      "small": {
+        "padding": "2px 8px",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "borderRadius": "4px"
+      },
+      "medium": {
+        "padding": "4px 10px",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "borderRadius": "6px"
+      },
+      "large": {
+        "padding": "6px 12px",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "borderRadius": "8px"
+      }
+    },
+    "variant": {
+      "solid": {
+        "opacity": 1
+      },
+      "outline": {
+        "background": "transparent",
+        "borderWidth": "2px"
+      },
+      "subtle": {
+        "border": "none",
+        "opacity": 0.9
+      }
+    },
+    "rounded": {
+      "true": {
+        "borderRadius": "9999px"
+      }
+    }
+  },
+  "properties": {
+    "display": "inline-flex",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "fontWeight": 500,
+    "textTransform": "none",
+    "whiteSpace": "nowrap",
+    "verticalAlign": "middle",
+    "userSelect": "none",
+    "gap": "4px"
+  },
+  "icon": {
+    "size": {
+      "small": "12px",
+      "medium": "14px",
+      "large": "16px"
+    }
+  },
+  "dot": {
+    "size": {
+      "small": "6px",
+      "medium": "8px",
+      "large": "10px"
+    },
+    "borderRadius": "50%",
+    "animation": {
+      "pulse": "pulse 2s infinite"
+    }
+  },
+  "count": {
+    "minWidth": "20px",
+    "height": "20px",
+    "borderRadius": "50%",
+    "padding": "0 4px",
+    "fontSize": "12px",
+    "fontWeight": "bold"
+  },
+  "removable": {
+    "button": {
+      "marginLeft": "4px",
+      "cursor": "pointer",
+      "opacity": 0.6,
+      "hover": {
+        "opacity": 1
+      }
+    }
+  },
+  "accessibility": {
+    "role": "status",
+    "ariaLabel": "Badge"
+  }
+}
